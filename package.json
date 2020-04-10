@@ -1,7 +1,7 @@
 {
-  "name": "PocketBook",
+  "name": "OpenActivity",
   "version": "1.0.0",
-  "author": "hilanmiao <hilanmiao@126.com>",
+  "author": "lucybaba <robbinccong@gmail.com>",
   "description": "An electron-vue project",
   "license": "MIT",
   "main": "./dist/electron/main.js",
@@ -19,16 +19,16 @@
     "dist": "node .electron-vue/build.js && electron-builder"
   },
   "build": {
-    "productName": "PocketBook",
-    "appId": "com.electron.PocketBook",
-    "copyright": "Copyright © 2019 lanmiao",
+    "productName": "OpenActivity",
+    "appId": "com.electron.OpenActivity",
+    "copyright": "Copyright © 2019 lucybaba",
     "directories": {
       "output": "build"
     },
     "publish": {
       "provider": "github",
-      "repo": "LanMiaoDesktop",
-      "owner": "hilanmiao",
+      "repo": "desktop",
+      "owner": "openactivity",
       "releaseType": "release",
       "private": false
     },
