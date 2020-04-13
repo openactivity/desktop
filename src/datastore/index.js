@@ -15,7 +15,7 @@ const APP = process.type === 'renderer' ? remote.app : app
 const STORE_PATH = APP.getPath('userData')
 // console.log(STORE_PATH)
 // dev C:\Users\JD\AppData\Roaming\Electron
-// prod C:\Users\JD\AppData\Roaming\PocketBook
+// prod C:\Users\JD\AppData\Roaming\OpenActivity
 
 if (process.type !== 'renderer') {
     // 如果不存在路径

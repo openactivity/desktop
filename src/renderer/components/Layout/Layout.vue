@@ -158,7 +158,7 @@
             Add
         },
         data: () => ({
-            title: 'PocketBook',
+            title: 'OpenActivity',
             drawer: null,
             items: [
                 {heading: 'Home'},

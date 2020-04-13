@@ -63,7 +63,7 @@
                                     @click="validate"
                                     :loading="loadingSubmit"
                             >
-                                lets go
+                                let`s go
                             </v-btn>
                         </v-form>
                     </v-card-text>
