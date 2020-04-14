@@ -15,8 +15,8 @@
                             elevation="12"
                             max-width="calc(100% - 32px)"
                     >
-                        <h1 class="">Log in</h1>
-                        <v-flex>
+                        <h1 class="">{{$t("loginForm.title")}}</h1>
+                        <!-- <v-flex>
                             <v-btn small flat icon>
                                 <v-icon>filter_1</v-icon>
                             </v-btn>
@@ -26,7 +26,7 @@
                             <v-btn small flat icon>
                                 <v-icon>filter_3</v-icon>
                             </v-btn>
-                        </v-flex>
+                        </v-flex> -->
                     </v-sheet>
 
                     <v-card-text class="px-4">
@@ -39,7 +39,7 @@
                                     v-model="name"
                                     :counter="10"
                                     :rules="nameRules"
-                                    label="Name"
+                                    :label='$t("loginForm.nameLabel")'
                                     required
                             ></v-text-field>
 
@@ -49,8 +49,8 @@
                                     :rules="[rules.required, rules.min]"
                                     :type="show1 ? 'text' : 'password'"
                                     name="input-10-1"
-                                    label="Normal with hint text"
-                                    hint="At least 6 characters"
+                                    :label='$t("loginForm.passwordLabel")'
+                                    :hint='$t("loginForm.passwordHint")'
                                     counter
                                     @click:append="show1 = !show1"
                             ></v-text-field>
@@ -63,7 +63,7 @@
                                     @click="validate"
                                     :loading="loadingSubmit"
                             >
-                                let`s go
+                                {{$t("loginForm.loginLabel")}}
                             </v-btn>
                         </v-form>
                     </v-card-text>
@@ -103,6 +103,9 @@
                 emailMatch: () => ('The email and password you entered don\'t match')
             }
         }),
+        mounted(){
+            // console.log(this.$t('loginForm.loginLabel'));
+        },
         methods: {
             validate() {
                 this.loadingSubmit = true

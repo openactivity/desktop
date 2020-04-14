@@ -14,6 +14,8 @@ import 'vuetify/dist/vuetify.min.css' // 引入Vuetify的css文件
 import 'material-design-icons-iconfont/dist/material-design-icons.css' // 引入Material Desgin Icon的css文件
 import {Upload, Button} from 'element-ui'
 
+import i18n from './i18n/'
+
 Vue.use(Vuetify)
 Vue.use(Button)
 Vue.use(Upload)
@@ -27,6 +29,7 @@ new Vue({
   components: { App },
   router,
   store,
+  i18n,
   template: '<App/>'
 }).$mount('#app')
 
