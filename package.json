@@ -88,7 +88,8 @@
     "vuetify": "^1.5.11",
     "vuex": "^3.1.0",
     "vuex-electron": "^1.0.3",
-    "winreg": "^1.2.4"
+    "winreg": "^1.2.4",
+    "view-design": "^4.0.2"
   },
   "devDependencies": {
     "@vue/devtools": "^5.0.9",
@@ -106,6 +107,8 @@
     "copy-webpack-plugin": "^5.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
     "del": "^4.1.0",
     "devtron": "^1.4.0",
     "electron": "^5.0.6",

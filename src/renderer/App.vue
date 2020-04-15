@@ -10,6 +10,23 @@
 </script>
 
 <style type="text/css" lang="scss">
+    /*引入iconfont*/
+    @font-face {
+        font-family: 'iconfont';  /* project id 1758046 */
+        src: url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.eot');
+        src: url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1758046_bp5aj2s64pn.svg#iconfont') format('svg');
+    }
+    .iconfont{
+        font-family:"iconfont" !important;
+        font-size:16px;font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
     html {
         /* 禁用html的滚动条，因为用的无框架窗口，默认就会有一个滚动条，所以去掉 */
         overflow-y: hidden;

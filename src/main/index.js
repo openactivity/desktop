@@ -63,10 +63,10 @@ function createLoginWindow() {
      */
     loginWindow = new BrowserWindow({
         show: true,
-        height: 360,
-        width: 300,
-        maxHeight: 360,
-        maxWidth: 300,
+        height: 700,
+        width: 1200,
+        maxHeight: 700,
+        maxWidth: 1200,
         useContentSize: true,
         frame: false, // 无边框
         transparent: true, // 透明
@@ -75,7 +75,8 @@ function createLoginWindow() {
         maximizable: false,
         minimizable: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webSecurity: false
         },
     })
 

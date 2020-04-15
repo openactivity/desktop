@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "";
+const baseURL = "https://meeting.gugud.com/api/checkin";
 //创建一个axios实例
 const ajax = axios.create({
   baseURL: baseURL,
@@ -15,19 +15,19 @@ ajax.interceptors.request.use(function(config) {
   return config;
 });
 
-// 只返回res_body数据
+// 添加响应拦截器
 ajax.interceptors.response.use(
-  res => {
-    // 判断返回的数据是否正常
-    return res;
-  },
-  err => {
-    console.log(err);
+  function (response) {
+      return response;
+  }, 
+  function (error) {
+      // util.error(error.response.data);
+      return Promise.reject(error);
   }
 );
 
-// //获取所有岗位
-// export const getStationDutys = (stationId) => {
-//   return ajax.get("/dutys?stationId=" + stationId);
-// };
+//获取所有岗位
+export const login = (loginForm) => {
+  return ajax.post("/meeting/api/login", loginForm);
+};
 
