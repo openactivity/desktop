@@ -35,7 +35,7 @@
 
 <template>
     <div class="main">
-        <div class="layout-ceiling">
+        <!-- <div class="layout-ceiling">
             <div class="menu">
                 <Menu mode="horizontal" :theme="theme" active-name="1">
                     <MenuItem name="1">
@@ -71,11 +71,11 @@
                 Hi.
                 <Icon type="md-exit" size="60" title="退出系统" @click="exited" />
             </div>
-        </div>
+        </div> -->
         <div class="single-page">
-            <!-- <keep-alive>
+            <keep-alive>
                 <router-view></router-view>
-            </keep-alive> -->
+            </keep-alive>
         </div>
     </div>
 </template>

@@ -396,15 +396,15 @@ function autoUpdate() {
 function crashReport() {
     // 报告常规错误
     Sentry.init({
-        dsn: 'https://8e0258fcf49d43d09d9fe7c6a0c8ea80@sentry.io/1455801',
+        dsn: 'https://b51a682f6ccd4c458c2862009692e078@o378534.ingest.sentry.io/5202047',
     })
 
     // 报告系统错误
     crashReporter.start({
-        companyName: 'lanmiao',
-        productName: 'LanMiaoDesktop',
+        companyName: 'OpenActivity',
+        productName: 'OpenactivityDesktop',
         ignoreSystemCrashHandler: true,
-        submitURL: 'https://sentry.io/api/1455801/minidump/?sentry_key=8e0258fcf49d43d09d9fe7c6a0c8ea80'
+        submitURL: 'https://o378534.ingest.sentry.io/api/5202047/minidump/?sentry_key=b51a682f6ccd4c458c2862009692e078'
     })
 
     // 渲染进程崩溃事件
@@ -541,11 +541,20 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-    if (mainWindow === null) {
-        createMainWindow()
-    }
+    //放大缩小
+    // if (mainWindow === null) {
+    //     createMainWindow()
+    // }else{
+    //     mainWindow.restore();
+    //     mainWindow.focus();
+    //     mainWindow.show();
+    // }
 
     if (loginWindow === null) {
         createLoginWindow()
+    }else{
+        loginWindow.restore();
+        loginWindow.focus();
+        loginWindow.show();
     }
 })

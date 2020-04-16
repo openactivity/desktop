@@ -1,11 +1,62 @@
 <template>
     <div id="app">
+        <div class="windows-button" v-if="windowsButton" @mouseenter="mouse(false)" @mouseleave="mouse(true)">
+            <i class="iconfont close">&#xe650;</i>
+            <i class="iconfont min">&#xe650;</i>
+            <i class="iconfont max">&#xe650;</i>
+        </div>
+        <div class="windows-button" v-if="!windowsButton" @mouseenter="mouse(false)" @mouseleave="mouse(true)">
+            <i class="iconfont close" @click="winControl('close')">&#xe610;</i>
+            <i class="iconfont min" @click="winControl('minimize')">&#xe63e;</i>
+            <i class="iconfont max" @click="winControl('maximize')">&#xe641;</i>
+        </div>
         <router-view></router-view>
     </div>
 </template>
 <script>
+    const electron = require('electron');
+    const remote = electron.remote;
     export default {
-        name: 'app'
+        name: 'app',
+        data () {
+            return {
+                windowsButton: true,
+            }
+        },
+         methods: {
+            mouse(type){
+                this.windowsButton = type;
+            },
+            winControl(action) {
+                const browserWindow = remote.getCurrentWindow()
+                switch (action) {
+                    case 'minimize':
+                            browserWindow.minimize()
+                            break;
+                    case 'maximize':
+                            // if (this.isMaximized) {
+                        if (browserWindow.isMaximized()) {
+                            browserWindow.unmaximize()
+                        } 
+                        else {
+                            if (this.isMaximized) {
+                                    browserWindow.unmaximize()
+                                } else {
+                                    browserWindow.maximize()
+                                }
+                        }
+                        // this.isMaximized = browserWindow.isMaximized()
+                        this.isMaximized = !this.isMaximized
+
+                        break;
+                    case 'close':
+                        browserWindow.close()
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 </script>
 
@@ -27,9 +78,33 @@
         -webkit-text-stroke-width: 0.2px;
         -moz-osx-font-smoothing: grayscale;
     }
+    .windows-button{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        cursor: default;
+        .iconfont{
+            font-size: 14px;
+            margin-left: 1px;
+        }
+        .close{
+            color: #ed4014;
+        }
+        .min{
+            color: #ff9900;
+        }
+        .max{
+            color: #19be6b
+        }
+    }
     html {
         /* 禁用html的滚动条，因为用的无框架窗口，默认就会有一个滚动条，所以去掉 */
         overflow-y: hidden;
+    }
+
+    body {
+        /* 允许拖动窗口 */
+        -webkit-app-region: drag;
     }
 
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
