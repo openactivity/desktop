@@ -25,16 +25,29 @@ export const loginRouter = {
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
     {
-        path: '/dashboard',
+        path: '/checkin',
         icon: 'gear-b',
-        title: '会议首页',
-        name: 'dashboard',
+        title: '签到',
+        name: 'checkin',
         meta: {
             title: '会务-签到客户端'
         },
         component: Main,
         children: [
-            { path: 'index',icon: 'md-apps', meta:{title: '签到'}, name: 'dashboard-index', component: resolve => { require(['@/views/dashboard.vue'], resolve); } },
+            { path: 'index',icon: 'md-apps', meta:{title: '签到'}, name: 'checkin-index', component: resolve => { require(['@/views/checkin.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/workspace',
+        icon: 'gear-b',
+        title: '工作台',
+        name: 'workspace',
+        meta: {
+            title: '会务-签到客户端'
+        },
+        component: Main,
+        children: [
+            { path: 'index',icon: 'md-apps', meta:{title: '工作台'}, name: 'workspace-index', component: resolve => { require(['@/views/workspace.vue'], resolve); } },
         ]
     }
 ];
