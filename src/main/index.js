@@ -76,7 +76,8 @@ function createLoginWindow() {
         minimizable: false,
         webPreferences: {
             nodeIntegration: true,
-            webSecurity: false
+            webSecurity: false,
+            webviewTag: true
         },
     })
 
@@ -117,6 +118,11 @@ function createLoginWindow() {
         mainWindow.destroy()
         loginWindow.show()
         loginWindow.focus()
+    })
+
+    ipcMain.on('getPrinterList', (event) => {
+        const list = loginWindow.webContents.getPrinters();
+        loginWindow.webContents.send('getPrinterList', list);
     })
 }
 

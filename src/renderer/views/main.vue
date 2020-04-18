@@ -105,7 +105,7 @@
     const electron = require('electron');
     const remote = electron.remote;
 
-    import {  mapActions, } from "vuex";
+    import {  mapActions } from "vuex";
     export default {
         components: {},
         data() {
@@ -117,7 +117,7 @@
         },
         methods: {
             ...mapActions(
-                "app", ['logout']
+                "meeting", ['logout']
             ),
             exited() {
                 this.logout();

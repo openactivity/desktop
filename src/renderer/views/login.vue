@@ -89,7 +89,7 @@
 const electron = require('electron');
 const remote = electron.remote;
 
-import { mapState, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions, } from "vuex";
 export default {
 	name: "login-page",
 	components: {},
@@ -126,17 +126,19 @@ export default {
 	},
 	computed: {},
 	methods: {
-		...mapActions("app", ["meeting"]),
+		...mapMutations(
+			"meeting", ['setMeeting']
+		),
 		handleSubmit(name) {
 			this.$refs[name].validate(valid => {
 				if (valid) {
 					this.$http
 						.login(this.formLogin)
 						.then(rsp => {
+							this.setMeeting(rsp.data);
 							this.$router.push({ name: "checkin" });
 						})
 						.catch(e => {
-							console.log(e);
 							this.$Message.error(e.response.data);
 						});
 				}

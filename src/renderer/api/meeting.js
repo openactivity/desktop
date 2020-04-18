@@ -31,3 +31,8 @@ export const login = (loginForm) => {
   return ajax.post("/meeting/api/login", loginForm);
 };
 
+//签到
+export const checkin = (checkinForm) => {
+  return ajax.post("/meeting/api/idcards", checkinForm);
+};
+

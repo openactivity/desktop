@@ -63,7 +63,7 @@
             };
         },
         computed: {
-            ...mapState("app", ['meeting']),
+            ...mapState("meeting", ['meeting']),
         },
         methods: {
             checkin(name) {
@@ -73,7 +73,7 @@
                         this.formItem["face"] = 0;
                         this.formItem["input"] = "manual";
                         this.formItem["pivot"] = "";
-                        this.$store.dispatchPromise('checkin/checkin', this.formItem).then((rsp) => {
+                        this.$http.checkin(this.formItem).then((rsp) => {
                             if (rsp.data.existed) {
                                 this.$Message.error("该学员已重复签到");
                             } else {
@@ -81,7 +81,10 @@
                             }
                             this.print(rsp.data);
                         }).catch((e) => {
-                            this.$Message.error(e.response.data.status + " " + e.response.data.msg);
+                            console.log(e);
+                            if(e.response!=null){
+                                this.$Message.error(e.response.data.status + " " + e.response.data.msg);
+                            }
                         })
                     }
                 })
