@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <div class="drag"></div>
         <router-view></router-view>
     </div>
 </template>
@@ -39,9 +40,13 @@
         overflow-y: hidden;
     }
 
-    body {
+    .drag {
         /* 允许拖动窗口 */
         -webkit-app-region: drag;
+        width: 100%;
+        z-index:-1;
+        height: 60px;
+        position: absolute;
     }
 
     /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/

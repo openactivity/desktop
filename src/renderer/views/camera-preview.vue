@@ -2,6 +2,7 @@
     <Modal
         v-model="visible"
         title="拍照"
+        @on-cancel="close"
         footer-hide="true"
         >
         <div class="camera-box">
@@ -98,6 +99,13 @@
             },
             reCamera(){
                 this.imgSrc = null;
+            },
+            close(){
+                if(this.thisVideo.srcObject){
+                    this.thisVideo.srcObject.getTracks().forEach(track => {
+                        track.stop();
+                    });
+                }
             }
         }
     }
